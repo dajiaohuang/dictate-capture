@@ -49,7 +49,7 @@ public static class SwallowD {
       bool injected = (info.flags & 0x10) != 0;
       bool down = msg == WM_KEYDOWN || msg == WM_SYSKEYDOWN;
       bool up = msg == WM_KEYUP || msg == 0x0105;
-      if (!_pass && !injected) {
+      if (!_pass) {
         if (info.vk == VK_D) {
           if (down) _realD = true;
           else if (up) _realD = false;
