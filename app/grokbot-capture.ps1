@@ -266,7 +266,7 @@ function Flush-Paste {
 $timer = New-Object System.Windows.Forms.Timer
 $timer.Interval = 30
 $timer.Add_Tick({
-  $chord = ((KeyDown 0x11) -and (KeyDown 0x44))
+  $chord = [bool][SwallowD]::RealChord() -or ((KeyDown 0x11) -and (KeyDown 0x44))
   if ($chord) {
     if (-not $script:talking) {
       $script:talking = $true

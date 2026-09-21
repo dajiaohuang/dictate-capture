@@ -14,6 +14,7 @@ Assert-True ($grok -match 'grokbot-crops') "grokbot crop temp folder is grokbot-
 Assert-True ($grok -match 'const int VK_D = 0x44') "grokbot still Ctrl+D"
 Assert-True ($grok -match 'public static class SwallowD') "grokbot hook type unchanged"
 Assert-True ($grok -match 'if \(!_pass\) \{') "grok tracks injected quick-key Ctrl+D"
+Assert-True ($grok -match '\$chord = \[bool\]\[SwallowD\]::RealChord\(\) -or') "grok timer observes injected quick-key Ctrl+D"
 Assert-True ($cur -match 'const int VK_M = 0x4D') "cursor helper swallows extra M"
 Assert-True ($cur -match 'KeyDown 0x4D') "cursor chord is Ctrl+M"
 Assert-True ($cur -notmatch 'KeyDown 0x44') "cursor timer does not use D"
